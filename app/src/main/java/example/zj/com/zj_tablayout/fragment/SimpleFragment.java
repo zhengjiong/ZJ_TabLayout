@@ -1,4 +1,4 @@
-package example.zj.com.zj_tablayout;/**
+package example.zj.com.zj_tablayout.fragment;/**
  * Created by zhengjiong on 15/6/9.
  */
 
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import example.zj.com.zj_tablayout.R;
 
 /**
  * create by zhengjiong

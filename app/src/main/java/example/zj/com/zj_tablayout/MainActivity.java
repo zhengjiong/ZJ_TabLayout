@@ -19,7 +19,7 @@ import android.widget.ListView;
 public class MainActivity extends AppCompatActivity {
 
     private ListView mListView;
-    private String[] mItems = new String[]{"Simple TabLayout"};
+    private String[] mItems = new String[]{"Simple TabLayout", "TabLayout Demo2"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         startActivity(new Intent(MainActivity.this, SimpleTabLayoutDemo.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(MainActivity.this, TabLayoutDemo2.class));
                         break;
                 }
             }

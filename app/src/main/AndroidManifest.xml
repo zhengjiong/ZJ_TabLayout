@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:theme="@style/AppThemeNoActionBar" android:name=".SimpleTabLayoutDemo"/>
+        <activity android:theme="@style/AppThemeNoActionBar2" android:name=".TabLayoutDemo2"/>
     </application>
 
 </manifest>
