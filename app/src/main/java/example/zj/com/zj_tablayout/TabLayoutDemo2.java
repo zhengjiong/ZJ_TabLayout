@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import example.zj.com.zj_tablayout.fragment.SimpleFragment;
+import example.zj.com.zj_tablayout.fragment.RecyclerViewFragment;
 
 /**
  * create by zhengjiong
@@ -44,9 +44,9 @@ public class TabLayoutDemo2 extends AppCompatActivity{
     }
 
     private void initViewPager() {
-        mFragment.add(SimpleFragment.newInstance("item1"));
-        mFragment.add(SimpleFragment.newInstance("item2"));
-        mFragment.add(SimpleFragment.newInstance("item3"));
+        mFragment.add(RecyclerViewFragment.newInstance());
+        mFragment.add(RecyclerViewFragment.newInstance());
+        mFragment.add(RecyclerViewFragment.newInstance());
 
         mPagerAdapter = new MyFragmentPagerAdapter(
                 getSupportFragmentManager(),
