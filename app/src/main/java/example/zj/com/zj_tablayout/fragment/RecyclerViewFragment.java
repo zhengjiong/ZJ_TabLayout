@@ -1,6 +1,4 @@
-package example.zj.com.zj_tablayout.fragment;/**
- * Created by zhengjiong on 15/6/9.
- */
+package example.zj.com.zj_tablayout.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,6 +17,8 @@ import java.util.ArrayList;
 import example.zj.com.zj_tablayout.R;
 
 /**
+ *
+ *
  * create by zhengjiong
  * Date: 2015-06-09
  * Time: 17:51
@@ -46,7 +46,7 @@ public class RecyclerViewFragment extends Fragment{
     }
 
     private void setupRecyclerView() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 40; i++) {
             mItemTitles.add(String.valueOf(i));
         }
 
@@ -90,7 +90,7 @@ public class RecyclerViewFragment extends Fragment{
             viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Snackbar.make(viewHolder.itemView, "onclick", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(viewHolder.mView, "onclick", Snackbar.LENGTH_SHORT).show();
                 }
             });
         }

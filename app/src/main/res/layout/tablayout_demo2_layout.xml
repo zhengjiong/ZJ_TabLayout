@@ -5,26 +5,63 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="?colorPrimary"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        />
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tablayout"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="?colorPrimary"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        />
-    <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"让Tab中的文字颜色变为白色-->
+    <!--
+    CoordinatorLayout用例1:
+    Design library引入了CoordinatorLayout，一个从另一层面去控制子view之间触摸事件的布局，
+    Design library中的很多控件都利用了它。一个很好的例子就是当你将FloatingActionButton作为
+    一个子View添加进 CoordinatorLayout并且将CoordinatorLayout传递给 Snackbar.make()，
+    在3.0及其以上的设备上，Snackbar不会显示在悬浮按钮的上面，而是FloatingActionButton
+    利用CoordinatorLayout提供的回调方法，在Snackbar以动画效果进入的时候自动向上移动让出位置，
+    并且在Snackbar动画地消失的时候回到原来的位置，不需要额外的代码。
+    -->
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
+    <!--
+    CoordinatorLayout用例2:
+    CoordinatorLayout的另一个用例是ActionBar与滚动技巧。你可能已经在自己的布局中使用了Toolbar ，
+    它允许你更加自由的自定义其外观与布局的其余部分融为一体。Design library把这种设计带到了更高的水平，
+    使用AppBarLayout可以让你的Toolbar与其他View（比如TabLayout的选项卡）能响应被标记了ScrollingViewBehavior的View的滚动事件。
+    -->
+    <!--CoordinatorLayout的layout_height必須設置成match_parent,不然顯示會出問題-->
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+    >
+        <!--
+        使用AppBarLayout可以让你的Toolbar与其他View（比如TabLayout的选项卡）
+        能响应被标记了ScrollingViewBehavior的View的滚动事件(下方的ViewPager)
+        -->
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="?colorPrimary"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_scrollFlags="scroll|enterAlways"/>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?colorPrimary"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+            <!--app:layout_scrollFlags="scroll|enterAlways",TabLayout如果也設置,像上滾動的時候tab也會隱藏掉-->
+            <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"让Tab中的文字颜色变为白色-->
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        <!--
+        这里必须设置layout_behavior,不然recyclerView最頂部的一條數據會顯示不出來,
+        字符串也必須設置成appbar_scrolling_view_behavior
+        -->
+    </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>
