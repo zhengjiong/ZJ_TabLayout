@@ -16,11 +16,12 @@ import java.util.List;
 import example.zj.com.zj_tablayout.fragment.RecyclerViewFragment;
 
 /**
+ * 使用Coordinator和AppbarLayout實現下方RecyclerView向上滾動的時候隱藏,再滑下的時候顯示
  * create by zhengjiong
  * Date: 2015-06-09
  * Time: 16:08
  */
-public class TabLayoutDemo2 extends AppCompatActivity{
+public class AutoHideTabLayoutDemo extends AppCompatActivity{
     private Toolbar mToolbar;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;

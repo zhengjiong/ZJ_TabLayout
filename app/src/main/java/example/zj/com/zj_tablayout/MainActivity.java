@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, SimpleTabLayoutDemo.class));
                         break;
                     case 1:
-                        startActivity(new Intent(MainActivity.this, TabLayoutDemo2.class));
+                        startActivity(new Intent(MainActivity.this, AutoHideTabLayoutDemo.class));
                         break;
                 }
             }
