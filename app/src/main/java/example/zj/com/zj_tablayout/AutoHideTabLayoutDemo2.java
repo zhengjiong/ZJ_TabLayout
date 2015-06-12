@@ -21,7 +21,7 @@ import example.zj.com.zj_tablayout.fragment.RecyclerViewFragment;
  * Date: 2015-06-09
  * Time: 16:08
  */
-public class AutoHideTabLayoutDemo extends AppCompatActivity{
+public class AutoHideTabLayoutDemo2 extends AppCompatActivity{
     private Toolbar mToolbar;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;

@@ -13,16 +13,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import example.zj.com.zj_tablayout.fragment.SimpleFragment;
+import example.zj.com.zj_tablayout.fragment.RecyclerViewFragment;
 
 /**
- * TabLayout基本用法
- *
+ * 使用Coordinator和AppbarLayout實現下方RecyclerView向上滾動的時候隱藏,再滑下的時候顯示
  * create by zhengjiong
  * Date: 2015-06-09
- * Time: 12:08
+ * Time: 16:08
  */
-public class SimpleTabLayoutDemo extends AppCompatActivity{
+public class AutoHideTabLayoutDemo3 extends AppCompatActivity{
     private Toolbar mToolbar;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
@@ -34,7 +33,7 @@ public class SimpleTabLayoutDemo extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.simple_tablayout_layout_demo);
+        setContentView(R.layout.tablayout_demo3_layout);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mTabLayout = (TabLayout) findViewById(R.id.tablayout);
@@ -46,9 +45,9 @@ public class SimpleTabLayoutDemo extends AppCompatActivity{
     }
 
     private void initViewPager() {
-        mFragment.add(SimpleFragment.newInstance("item1"));
-        mFragment.add(SimpleFragment.newInstance("item2"));
-        mFragment.add(SimpleFragment.newInstance("item3"));
+        mFragment.add(RecyclerViewFragment.newInstance());
+        mFragment.add(RecyclerViewFragment.newInstance());
+        mFragment.add(RecyclerViewFragment.newInstance());
 
         mPagerAdapter = new MyFragmentPagerAdapter(
                 getSupportFragmentManager(),
@@ -66,11 +65,10 @@ public class SimpleTabLayoutDemo extends AppCompatActivity{
 
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setTabsFromPagerAdapter(mPagerAdapter);
-
-        //style中colorAccent设置Tablayout的indicator
     }
+
     private void initToolbar() {
-        mToolbar.setTitle("SimpleTabLayout Demo");
+        mToolbar.setTitle("Demo2");
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_menu);

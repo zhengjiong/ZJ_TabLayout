@@ -17,7 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:theme="@style/AppThemeNoActionBar" android:name=".SimpleTabLayoutDemo"/>
-        <activity android:theme="@style/AppThemeNoActionBar2" android:name=".AutoHideTabLayoutDemo"/>
+        <activity android:theme="@style/AppThemeNoActionBar2" android:name=".AutoHideTabLayoutDemo1"/>
+        <activity android:theme="@style/AppThemeNoActionBar2" android:name=".AutoHideTabLayoutDemo2"/>
+        <activity android:theme="@style/AppThemeNoActionBar2" android:name=".AutoHideTabLayoutDemo3"/>
+        <activity android:theme="@style/AppThemeNoActionBar2" android:name=".AutoHideTabLayoutDemo4"/>
     </application>
 
 </manifest>

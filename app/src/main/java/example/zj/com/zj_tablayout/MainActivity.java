@@ -19,7 +19,12 @@ import android.widget.ListView;
 public class MainActivity extends AppCompatActivity {
 
     private ListView mListView;
-    private String[] mItems = new String[]{"Simple TabLayout", "TabLayout Demo2"};
+    private String[] mItems = new String[]{
+            "Simple TabLayout",
+            "上滑隐藏Toolbar,下滑显示Toolbar",
+            "上滑全部隐藏,下滑全部显示",
+            "上滑全部隐藏,下滑到顶部时显示Toolbar",
+            "上滑只隐藏Toolbar,下滑到顶部显示Toolbar(没有成功)"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +49,16 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, SimpleTabLayoutDemo.class));
                         break;
                     case 1:
-                        startActivity(new Intent(MainActivity.this, AutoHideTabLayoutDemo.class));
+                        startActivity(new Intent(MainActivity.this, AutoHideTabLayoutDemo1.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(MainActivity.this, AutoHideTabLayoutDemo2.class));
+                        break;
+                    case 3:
+                        startActivity(new Intent(MainActivity.this, AutoHideTabLayoutDemo3.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(MainActivity.this, AutoHideTabLayoutDemo4.class));
                         break;
                 }
             }

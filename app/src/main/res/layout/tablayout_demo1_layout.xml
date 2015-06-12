@@ -50,9 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="?colorPrimary"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:layout_scrollFlags="scroll|enterAlways"
-                />
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
             <!--app:layout_scrollFlags="scroll|enterAlways",TabLayout如果也設置,像上滾動的時候tab也會隱藏掉-->
             <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"让Tab中的文字颜色变为白色-->
         </android.support.design.widget.AppBarLayout>
