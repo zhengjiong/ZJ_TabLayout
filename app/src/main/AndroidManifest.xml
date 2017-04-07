@@ -21,6 +21,7 @@
         <activity android:theme="@style/AppThemeNoActionBar2" android:name=".AutoHideTabLayoutDemo2"/>
         <activity android:theme="@style/AppThemeNoActionBar2" android:name=".AutoHideTabLayoutDemo3"/>
         <activity android:theme="@style/AppThemeNoActionBar2" android:name=".AutoHideTabLayoutDemo4"/>
+        <activity android:theme="@style/AppThemeNoActionBar2" android:name=".AutoHideTabLayoutDemo5"/>
     </application>
 
 </manifest>

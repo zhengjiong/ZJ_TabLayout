@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
             "上滑隐藏Toolbar,下滑显示Toolbar",
             "上滑全部隐藏,下滑全部显示",
             "上滑全部隐藏,下滑到顶部时显示Toolbar",
-            "上滑只隐藏Toolbar,下滑到顶部显示Toolbar(没有成功)"};
+            "上滑只隐藏Toolbar,下滑到顶部显示Toolbar(没有成功)",
+            "仿饿了么外卖首页"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 4:
                         startActivity(new Intent(MainActivity.this, AutoHideTabLayoutDemo4.class));
+                        break;
+                    case 5:
+                        startActivity(new Intent(MainActivity.this, AutoHideTabLayoutDemo5.class));
                         break;
                 }
             }
