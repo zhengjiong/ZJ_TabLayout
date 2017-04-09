@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import example.zj.com.zj_tablayout.fragment.RecyclerViewFragment;
+import example.zj.com.zj_tablayout.fragment.TwoRecyclerViewFragment;
 
 /**
  * Title: AutoHideTabLayoutDemo5
@@ -48,11 +48,11 @@ public class AutoHideTabLayoutDemo5 extends AppCompatActivity{
     }
 
     private void initViewPager() {
-        mFragment.add(RecyclerViewFragment.newInstance());
-        mFragment.add(RecyclerViewFragment.newInstance());
-        mFragment.add(RecyclerViewFragment.newInstance());
-        mFragment.add(RecyclerViewFragment.newInstance());
-        mFragment.add(RecyclerViewFragment.newInstance());
+        mFragment.add(TwoRecyclerViewFragment.newInstance());
+        mFragment.add(TwoRecyclerViewFragment.newInstance());
+        mFragment.add(TwoRecyclerViewFragment.newInstance());
+        mFragment.add(TwoRecyclerViewFragment.newInstance());
+        mFragment.add(TwoRecyclerViewFragment.newInstance());
 
         mPagerAdapter = new MyFragmentPagerAdapter(
                 getSupportFragmentManager(),
@@ -75,10 +75,10 @@ public class AutoHideTabLayoutDemo5 extends AppCompatActivity{
     }
 
     private void initToolbar() {
-        mToolbar.setTitle("Demo2");
+        mToolbar.setTitle("");
         setSupportActionBar(mToolbar);
 
-        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_menu);
+        //getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_menu);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
