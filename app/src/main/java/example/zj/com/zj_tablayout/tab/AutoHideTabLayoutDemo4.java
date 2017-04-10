@@ -1,4 +1,4 @@
-package example.zj.com.zj_tablayout;
+package example.zj.com.zj_tablayout.tab;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import example.zj.com.zj_tablayout.R;
 import example.zj.com.zj_tablayout.fragment.RecyclerViewFragment;
 
 /**
@@ -21,7 +22,7 @@ import example.zj.com.zj_tablayout.fragment.RecyclerViewFragment;
  * Date: 2015-06-09
  * Time: 16:08
  */
-public class AutoHideTabLayoutDemo2 extends AppCompatActivity{
+public class AutoHideTabLayoutDemo4 extends AppCompatActivity{
     private Toolbar mToolbar;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
@@ -33,7 +34,7 @@ public class AutoHideTabLayoutDemo2 extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tablayout_demo2_layout);
+        setContentView(R.layout.tablayout_demo4_layout);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mTabLayout = (TabLayout) findViewById(R.id.tablayout);
@@ -68,7 +69,7 @@ public class AutoHideTabLayoutDemo2 extends AppCompatActivity{
     }
 
     private void initToolbar() {
-        mToolbar.setTitle("SimpleTabLayout Demo");
+        mToolbar.setTitle("Demo2");
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_menu);

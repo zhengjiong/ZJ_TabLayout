@@ -14,72 +14,9 @@
         android:background="@android:color/white"
         android:scrollbars="vertical"
         android:visibility="visible"/>
-
-    <LinearLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/sort_layout"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:background="@android:color/white"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:visibility="visible">
-
-            <FrameLayout
-                android:id="@+id/price_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/tv_price_sort"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center"
-                    android:drawablePadding="2dp"
-                    android:gravity="center"
-                    android:text="A"
-                    android:textColor="#666666"/>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/filter_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/tv_filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:text="B"
-                    android:textColor="#666666"/>
-            </FrameLayout>
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-            <FrameLayout
-                android:id="@+id/filter_holder"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </RelativeLayout>
-    </LinearLayout>
+        android:layout_marginLeft="8dp"/>
 </LinearLayout>

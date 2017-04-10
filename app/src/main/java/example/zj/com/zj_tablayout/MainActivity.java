@@ -10,6 +10,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import example.zj.com.zj_tablayout.tab.AutoHideTabLayoutDemo1;
+import example.zj.com.zj_tablayout.tab.AutoHideTabLayoutDemo2;
+import example.zj.com.zj_tablayout.tab.AutoHideTabLayoutDemo3;
+import example.zj.com.zj_tablayout.tab.AutoHideTabLayoutDemo4;
+import example.zj.com.zj_tablayout.tab.AutoHideTabLayoutDemo5;
+import example.zj.com.zj_tablayout.tab.SimpleTabLayoutDemo;
+
 /**
  * TabLayout Demo
  *

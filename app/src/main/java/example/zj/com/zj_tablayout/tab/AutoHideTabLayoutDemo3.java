@@ -1,4 +1,4 @@
-package example.zj.com.zj_tablayout;
+package example.zj.com.zj_tablayout.tab;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import example.zj.com.zj_tablayout.R;
 import example.zj.com.zj_tablayout.fragment.RecyclerViewFragment;
 
 /**

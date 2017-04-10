@@ -17,12 +17,11 @@ import java.util.ArrayList;
 import example.zj.com.zj_tablayout.R;
 
 /**
- *
  * create by zhengjiong
  * Date: 2015-06-09
  * Time: 17:51
  */
-public class TwoRecyclerViewFragment extends Fragment{
+public class TwoRecyclerViewFragment extends Fragment {
 
     private RecyclerView mRecyclerView1;
     private RecyclerView mRecyclerView2;
@@ -61,30 +60,29 @@ public class TwoRecyclerViewFragment extends Fragment{
         }
 
         mRecyclerView2.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView2.setAdapter(new MyAdapter());
+        mRecyclerView2.setAdapter(new RightAdapter());
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
-        private View mView;
-        private TextView mTxtTitle;
 
-        public MyViewHolder(View itemView) {
-            super(itemView);
-            mView = itemView;
-            mTxtTitle = (TextView) itemView.findViewById(R.id.txt_title);
+    static class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+        static class MyViewHolder extends RecyclerView.ViewHolder {
+            private View mView;
+            private TextView mTxtTitle;
+
+            public MyViewHolder(View itemView) {
+                super(itemView);
+                mView = itemView;
+                mTxtTitle = (TextView) itemView.findViewById(R.id.txt_title);
+            }
+
+            public void bindData(String value) {
+                mTxtTitle.setText(value);
+            }
         }
-
-        public void bindData(String value){
-            mTxtTitle.setText(value);
-        }
-    }
-
-    class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_layout, viewGroup, false);
-
             return new MyViewHolder(view);
         }
 
@@ -94,7 +92,7 @@ public class TwoRecyclerViewFragment extends Fragment{
 
 
             TypedValue typedValue = new TypedValue();
-            getActivity().getTheme().resolveAttribute(R.attr.selectableItemBackground, typedValue, true);
+            //getActivity().getTheme().resolveAttribute(R.attr.selectableItemBackground, typedValue, true);
 
             viewHolder.mView.setBackgroundResource(typedValue.resourceId);
             viewHolder.mView.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +105,54 @@ public class TwoRecyclerViewFragment extends Fragment{
 
         @Override
         public int getItemCount() {
-            return mItemTitles.size();
+            return 20;
         }
+    }
+
+    static class RightAdapter extends RecyclerView.Adapter<RightAdapter.MyViewHolder> {
+
+        public static final int TYPE_HEADER = 1;
+
+        static class MyViewHolder extends RecyclerView.ViewHolder {
+
+            public MyViewHolder(View itemView) {
+                super(itemView);
+            }
+
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            if (position == 0) {
+                return TYPE_HEADER;
+            } else {
+                return super.getItemViewType(position);
+            }
+        }
+
+        @Override
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            if (viewType == 1) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_header_layout, parent, false);
+                return new MyViewHolder(view);
+            } else {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_layout, parent, false);
+                return new MyViewHolder(view);
+            }
+        }
+
+        @Override
+        public void onBindViewHolder(MyViewHolder holder, int position) {
+            if (getItemViewType(position) == 0) {
+
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return 20;
+        }
+
+
     }
 }

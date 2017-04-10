@@ -21,24 +21,32 @@ CoordinatorLayout的另一个用例是ActionBar与滚动技巧。你可能已经
 使用AppBarLayout可以让你的Toolbar与其他View（比如TabLayout的选项卡）能响应被标记了ScrollingViewBehavior的View的滚动事件。
 --><!--CoordinatorLayout的layout_height必須設置成match_parent,不然顯示會出問題,
     AppBarLayout外层必须用CoordinatorLayout,这样才有滚动效果-->
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="RtlHardcoded"
+    >
     <!--
     使用AppBarLayout可以让你的Toolbar与其他View（比如TabLayout的选项卡）
     能响应被标记了ScrollingViewBehavior的View的滚动事件(下方的ViewPager)
     -->
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:elevation="0dp"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <!--<android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
             >-->
-        <android.support.v7.widget.Toolbar
+
+        <!--<android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
@@ -57,31 +65,108 @@ CoordinatorLayout的另一个用例是ActionBar与滚动技巧。你可能已经
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="搜索商品/店铺"/>
-        </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>-->
+
+        <FrameLayout
+            android:id="@+id/framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@android:color/white"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+        </FrameLayout>
+        <!--<android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="?colorPrimaryDark"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_collapseMode="pin"/>-->
+        <!--android:background="?colorPrimary"-->
+        <!--app:layout_scrollFlags="scroll|enterAlways",TabLayout如果也設置,像上滾動的時候tab也會隱藏掉-->
+        <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"让Tab中的文字颜色变为白色-->
+
+        <!-- </android.support.design.widget.CollapsingToolbarLayout>-->
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tablayout"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:background="#60673AB7"
+            android:visibility="visible"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:visibility="visible"/>
-
-        <!--android:background="?colorPrimary"-->
-        <!--app:layout_scrollFlags="scroll|enterAlways",TabLayout如果也設置,像上滾動的時候tab也會隱藏掉-->
-        <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"让Tab中的文字颜色变为白色-->
-
-        <!--</android.support.design.widget.CollapsingToolbarLayout>-->
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+        <!--<View
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="#1ca6f5"/>-->
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
     <!--
     这里必须设置layout_behavior,不然recyclerView最頂部的一條數據會顯示不出來,
     而且向上滑动的时候,会先滑动AppBar,appbar被隐藏之后才会滑动RecyclerView
     字符串也必須設置成appbar_scrolling_view_behavior
     -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e01ca6f5"
+        android:orientation="horizontal"
+        app:layout_behavior="example.zj.com.zj_tablayout.tab.Demo5CustomBehavior">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_arrow_back"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp">
+            <LinearLayout
+                android:id="@+id/head_container"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:gravity="center_vertical"
+                android:visibility="visible"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="环球中心"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="19分钟送达"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:gravity="center"
+                android:hint="搜索商品/店铺"
+                android:background="@null"
+                android:textSize="15dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"/>
+        </LinearLayout>
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

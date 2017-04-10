@@ -1,4 +1,4 @@
-package example.zj.com.zj_tablayout;
+package example.zj.com.zj_tablayout.tab;
 /**
  * Created by zhengjiong on 15/6/9.
  */

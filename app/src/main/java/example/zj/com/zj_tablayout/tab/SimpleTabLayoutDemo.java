@@ -1,4 +1,4 @@
-package example.zj.com.zj_tablayout;
+package example.zj.com.zj_tablayout.tab;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -13,15 +13,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import example.zj.com.zj_tablayout.fragment.RecyclerViewFragment;
+import example.zj.com.zj_tablayout.R;
+import example.zj.com.zj_tablayout.fragment.SimpleFragment;
 
 /**
- * 使用Coordinator和AppbarLayout實現下方RecyclerView向上滾動的時候隱藏,再滑下的時候顯示
+ * TabLayout基本用法
+ *
  * create by zhengjiong
  * Date: 2015-06-09
- * Time: 16:08
+ * Time: 12:08
  */
-public class AutoHideTabLayoutDemo4 extends AppCompatActivity{
+public class SimpleTabLayoutDemo extends AppCompatActivity{
     private Toolbar mToolbar;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
@@ -33,7 +35,7 @@ public class AutoHideTabLayoutDemo4 extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tablayout_demo4_layout);
+        setContentView(R.layout.simple_tablayout_layout_demo);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mTabLayout = (TabLayout) findViewById(R.id.tablayout);
@@ -45,9 +47,9 @@ public class AutoHideTabLayoutDemo4 extends AppCompatActivity{
     }
 
     private void initViewPager() {
-        mFragment.add(RecyclerViewFragment.newInstance());
-        mFragment.add(RecyclerViewFragment.newInstance());
-        mFragment.add(RecyclerViewFragment.newInstance());
+        mFragment.add(SimpleFragment.newInstance("item1"));
+        mFragment.add(SimpleFragment.newInstance("item2"));
+        mFragment.add(SimpleFragment.newInstance("item3"));
 
         mPagerAdapter = new MyFragmentPagerAdapter(
                 getSupportFragmentManager(),
@@ -65,10 +67,11 @@ public class AutoHideTabLayoutDemo4 extends AppCompatActivity{
 
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setTabsFromPagerAdapter(mPagerAdapter);
-    }
 
+        //style中colorAccent设置Tablayout的indicator
+    }
     private void initToolbar() {
-        mToolbar.setTitle("Demo2");
+        mToolbar.setTitle("SimpleTabLayout Demo");
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_menu);
